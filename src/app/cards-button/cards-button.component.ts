@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import {FlipCardData} from '../data/flip-cards-data';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cards-button',
@@ -9,8 +11,19 @@ import {Component, Input} from '@angular/core';
 export class CardsButtonComponent {
 
   @Input() title: string = 'TITLE';
+  @Input() cards: FlipCardData[] = [];
 
-  logClick(action: string) {
-    console.log(`${action} button clicked`);
+  constructor(private router: Router) {}
+
+  onLearnClick() {
+    console.log('Learn button clicked');
+  }
+
+  onLearnWithPreviousClick() {
+    console.log('Learn with previous button clicked');
+  }
+
+  onViewClick() {
+    this.router.navigate(['/view-all'], { state: { cards: this.cards } });
   }
 }

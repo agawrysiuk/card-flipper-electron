@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="buttons">
+    <button (click)="toggleColumn('jpn')">hide jpn column</button>
+    <button (click)="toggleColumn('eng')">hide eng column</button>
+  </div>
+
+  <table>
+    <tr>
+      <th>JPN</th>
+      <th>ENG</th>
+    </tr>
+    <tr *ngFor="let card of cards">
+      <td>{{ showJpn ? card.jpnSigns + ' ' + card.jpn : ''}}</td>
+      <td>{{ showEng ? card.eng : '' }}</td>
+    </tr>
+  </table>
+</div>
