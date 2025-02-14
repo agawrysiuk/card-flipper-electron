@@ -1,14 +1,14 @@
 <div class="overlay pointer" *ngIf="state === 1" (click)="toggleState()"></div>
 <div class="container">
   <div class="text-section">
-    <p>{{ text1 }}</p>
+    <p>{{ currentCard.front }}</p>
     <hr />
-    <p>{{ state === 2 ? text2 : '&nbsp;' }}</p>
+    <p>{{ state === 2 ? currentCard.back : '&nbsp;' }}</p>
   </div>
   <div class="reaction-buttons" *ngIf="state === 2" (click)="$event.stopPropagation()">
-    <button class="sad" (click)="logReaction('sad')"><img src="./assets/images/emotion-sad.svg" /></button>
-    <button class="normal" (click)="logReaction('normal')"><img src="./assets/images/emotion-normal.svg" /></button>
-    <button class="happy" (click)="logReaction('happy')"><img src="./assets/images/emotion-happy.svg" /></button>
-    <button class="super-happy" (click)="logReaction('super-happy')"><img src="./assets/images/emotion-super-happy.svg" /></button>
+    <button class="sad" (click)="showNextCard(5)"><img src="./assets/images/emotion-sad.svg" /></button>
+    <button class="normal" (click)="showNextCard(3)"><img src="./assets/images/emotion-normal.svg" /></button>
+    <button class="happy" (click)="showNextCard(1)"><img src="./assets/images/emotion-happy.svg" /></button>
+    <button class="super-happy" (click)="showNextCard(0)"><img src="./assets/images/emotion-super-happy.svg" /></button>
   </div>
 </div>
