@@ -14,7 +14,7 @@ export interface WeightedFlipCard {
   styleUrl: './learn.component.scss'
 })
 export class LearnComponent {
-  state = 1;
+  state: 'HIDE_BACK' | 'SHOW_BACK' | 'END' = 'HIDE_BACK';
   data!: DayData;
   weightedCards: WeightedFlipCard[] = [];
   currentCard!: FlipCard;
@@ -29,16 +29,19 @@ export class LearnComponent {
           { front: card.back, back: card.front }
         ])
         .map(card => ({weight: 3, card}));
-      console.log(this.weightedCards)
       this.pickCard();
     }
   }
 
   showNextCard(newWeight: number) {
-    console.log('showNextCard', newWeight);
     this.adjustWeight(this.currentCard, newWeight);
-    this.pickCard();
-    this.toggleState();
+    const allZeros = this.weightedCards.reduce((sum, wc) => sum + wc.weight, 0) === 0;
+    if (allZeros) {
+      this.state = 'END';
+    } else {
+      this.pickCard();
+      this.toggleState();
+    }
   }
 
   adjustWeight(card: FlipCard, newWeight: number) {
@@ -61,6 +64,6 @@ export class LearnComponent {
 
 
   toggleState() {
-    this.state = this.state === 1 ? 2 : 1;
+    this.state = this.state === 'HIDE_BACK' ? 'SHOW_BACK' : 'HIDE_BACK';
   }
 }

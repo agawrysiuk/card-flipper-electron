@@ -1,16 +1,22 @@
 <app-back-button></app-back-button>
-<div class="overlay pointer" *ngIf="state === 1" (click)="toggleState()"></div>
+<div class="overlay pointer" *ngIf="state === 'HIDE_BACK'" (click)="toggleState()"></div>
+<div class="overlay" style="background-color: #fafafa" *ngIf="state === 'END'">
+  <div class="container">
+    <h2>Well done!</h2>
+    <p>You have finished all cards for {{ data.day }}.</p>
+  </div>
+</div>
 <div class="container">
   <p class="description">{{ data.day }}</p>
   <div class="text-section">
     <p>{{ currentCard.front }}</p>
-    <hr />
-    <p>{{ state === 2 ? currentCard.back : '&nbsp;' }}</p>
+    <hr/>
+    <p>{{ state === 'SHOW_BACK' ? currentCard.back : '&nbsp;' }}</p>
   </div>
-  <div class="reaction-buttons" *ngIf="state === 2" (click)="$event.stopPropagation()">
-    <button class="sad" (click)="showNextCard(5)"><img src="./assets/images/emotion-sad.svg" /></button>
-    <button class="normal" (click)="showNextCard(3)"><img src="./assets/images/emotion-normal.svg" /></button>
-    <button class="happy" (click)="showNextCard(1)"><img src="./assets/images/emotion-happy.svg" /></button>
-    <button class="super-happy" (click)="showNextCard(0)"><img src="./assets/images/emotion-super-happy.svg" /></button>
+  <div class="reaction-buttons" *ngIf="state === 'SHOW_BACK'" (click)="$event.stopPropagation()">
+    <button class="sad" (click)="showNextCard(5)"><img src="./assets/images/emotion-sad.svg"/></button>
+    <button class="normal" (click)="showNextCard(3)"><img src="./assets/images/emotion-normal.svg"/></button>
+    <button class="happy" (click)="showNextCard(1)"><img src="./assets/images/emotion-happy.svg"/></button>
+    <button class="super-happy" (click)="showNextCard(0)"><img src="./assets/images/emotion-super-happy.svg"/></button>
   </div>
 </div>
