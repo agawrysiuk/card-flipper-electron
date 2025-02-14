@@ -32,24 +32,3 @@ table {
     border-right: 1px solid black;
   }
 }
-
-.position-fixed-top-left {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-}
-
-.back-button {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #f1f1f1;
-  color: black;
-  border-radius: 50%;
-}
-
-.back-button:hover {
-  background-color: #ddd;
-  color: black;
-}

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {DayData} from '../data/dto';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-view-all',
@@ -14,7 +13,7 @@ export class ViewAllComponent {
   showBack = true;
   data!: DayData;
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras?.state) {
       this.data = navigation.extras.state['data'];
@@ -27,9 +26,5 @@ export class ViewAllComponent {
     } else {
       this.showBack = !this.showBack;
     }
-  }
-
-  goBack() {
-    this.location.back()
   }
 }
