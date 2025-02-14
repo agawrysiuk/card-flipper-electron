@@ -41,7 +41,6 @@ hr {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  background: white;
 }
 
 button {
@@ -60,27 +59,27 @@ button {
   img {
     width: 40px;
     height: 40px;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(103%) contrast(101%);
+    filter: invert(100%) sepia(40%) saturate(479%) hue-rotate(330deg) brightness(117%) contrast(91%);
   }
 }
 
 .sad {
-  background-color: #f44336;
+  background-color: #FF8360;
   color: white;
 }
 
 .normal {
-  background-color: #ffeb3b;
+  background-color: #E8E288;
   color: black;
 }
 
 .happy {
-  background-color: #4caf50;
+  background-color: #7DCE82;
   color: white;
 }
 
 .super-happy {
-  background-color: #006302;
+  background-color: #214E34;
   color: white;
 }
 
