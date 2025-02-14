@@ -1,0 +1,93 @@
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.text-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.text-section p {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+hr {
+  width: 80%;
+  margin: 10px 0;
+  border: none;
+  height: 2px;
+  background: #000;
+}
+
+.reaction-buttons {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: white;
+}
+
+button {
+  font-size: 24px;
+  padding: 15px;
+  border: none;
+  border-radius: 25%;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(158deg) brightness(103%) contrast(101%);
+  }
+}
+
+.sad {
+  background-color: #f44336;
+  color: white;
+}
+
+.normal {
+  background-color: #ffeb3b;
+  color: black;
+}
+
+.happy {
+  background-color: #4caf50;
+  color: white;
+}
+
+.super-happy {
+  background-color: #006302;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}

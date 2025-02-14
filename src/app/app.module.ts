@@ -7,6 +7,7 @@ import { CardsButtonComponent } from './cards-button/cards-button.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { HomeComponent } from './home/home.component';
 import { BackButtonComponent } from './back-button/back-button.component';
+import { LearnComponent } from './learn/learn.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BackButtonComponent } from './back-button/back-button.component';
     CardsButtonComponent,
     ViewAllComponent,
     HomeComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    LearnComponent
   ],
   imports: [
     BrowserModule,

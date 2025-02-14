@@ -43,4 +43,8 @@ export class HomeComponent {
   onViewClicked($event: DayData) {
     this.router.navigate(['/view-all'], {state: {data: $event}});
   }
+
+  onLearnClicked($event: DayData) {
+    this.router.navigate(['/learn'], {state: {data: $event}});
+  }
 }
