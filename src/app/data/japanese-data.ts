@@ -1,11 +1,11 @@
-export interface FlipCardData {
+export interface JapaneseData {
   day: string;
   jpnSigns: string;
   jpn: string;
   eng: string;
 }
 
-export const flipCardsData: FlipCardData[] = [
+export const japaneseData: JapaneseData[] = [
   {day: "Day 1",jpnSigns: "行く",jpn: "iku",eng: "go"},
   {day: "Day 1",jpnSigns: "見る",jpn: "miru",eng: "see, look at"},
   {day: "Day 1",jpnSigns: "多い",jpn: "ooi",eng: "a lot of, many"},

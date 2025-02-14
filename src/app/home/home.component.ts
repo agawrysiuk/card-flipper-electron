@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {FlipCardData, flipCardsData} from '../data/flip-cards-data';
+import {Component} from '@angular/core';
+import {japaneseData, JapaneseData} from '../data/japanese-data';
+import {DayData} from '../data/dto';
+import {Router} from '@angular/router';
+import {ConverterService} from '../service/converter.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +11,20 @@ import {FlipCardData, flipCardsData} from '../data/flip-cards-data';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  databaseCards: {day: string, data: FlipCardData[]}[] = [];
+  databaseCards: DayData[] = [];
 
-  constructor() {
-    this.databaseCards = this.groupCardsByDay(flipCardsData);
+  constructor(private router: Router,
+              private converter: ConverterService) {
+    this.databaseCards = this.groupCardsByDay(japaneseData)
+      .map(group => ({
+        day: group.day,
+        frontTitle: 'JPN',
+        backTitle: 'ENG',
+        cards: group.data.map(card => this.converter.toFlipCard(card))
+      }));
   }
 
-  private groupCardsByDay(cards: FlipCardData[]): {day: string, data: FlipCardData[]}[] {
+  private groupCardsByDay(cards: JapaneseData[]): { day: string, data: JapaneseData[] }[] {
     const grouped = cards.reduce((acc, card) => {
       const day = card.day;
       if (!acc[day]) {
@@ -22,11 +32,15 @@ export class HomeComponent {
       }
       acc[day].push(card);
       return acc;
-    }, {} as {[key: string]: FlipCardData[]});
+    }, {} as { [key: string]: JapaneseData[] });
 
     return Object.keys(grouped).map(day => ({
       day,
       data: grouped[day]
     }));
+  }
+
+  onViewClicked($event: DayData) {
+    this.router.navigate(['/view-all'], {state: {data: $event}});
   }
 }

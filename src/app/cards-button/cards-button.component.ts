@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {FlipCardData} from '../data/flip-cards-data';
-import {Router} from '@angular/router';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {DayData} from '../data/dto';
 
 @Component({
   selector: 'app-cards-button',
@@ -10,10 +9,8 @@ import {Router} from '@angular/router';
 })
 export class CardsButtonComponent {
 
-  @Input() title: string = 'TITLE';
-  @Input() cards: FlipCardData[] = [];
-
-  constructor(private router: Router) {}
+  @Input() data!: DayData;
+  @Output() onViewClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
 
   onLearnClick() {
     console.log('Learn button clicked');
@@ -24,6 +21,6 @@ export class CardsButtonComponent {
   }
 
   onViewClick() {
-    this.router.navigate(['/view-all'], { state: { cards: this.cards } });
+    this.onViewClicked.emit(this.data);
   }
 }

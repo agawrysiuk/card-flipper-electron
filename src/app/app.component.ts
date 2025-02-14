@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FlipCardData, flipCardsData} from './data/flip-cards-data';
+import {JapaneseData, japaneseData} from './data/japanese-data';
 
 @Component({
   selector: 'app-root',

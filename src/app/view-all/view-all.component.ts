@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {FlipCardData} from '../data/flip-cards-data';
+import {DayData} from '../data/dto';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-view-all',
@@ -9,22 +10,26 @@ import {FlipCardData} from '../data/flip-cards-data';
   styleUrl: './view-all.component.scss'
 })
 export class ViewAllComponent {
-  showJpn = true;
-  showEng = true;
-  cards: FlipCardData[] = [];
+  showFront = true;
+  showBack = true;
+  data!: DayData;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras?.state) {
-      this.cards = navigation.extras.state['cards'];
+      this.data = navigation.extras.state['data'];
     }
   }
 
-  toggleColumn(column: 'jpn' | 'eng') {
-    if (column === 'jpn') {
-      this.showJpn = !this.showJpn;
+  toggleColumn(column: 'front' | 'back') {
+    if (column === 'front') {
+      this.showFront = !this.showFront;
     } else {
-      this.showEng = !this.showEng;
+      this.showBack = !this.showBack;
     }
+  }
+
+  goBack() {
+    this.location.back()
   }
 }

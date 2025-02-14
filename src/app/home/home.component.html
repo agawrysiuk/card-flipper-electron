@@ -1,5 +1,5 @@
 <div class="cards-container">
   <ng-container *ngFor="let group of databaseCards">
-    <app-cards-button [title]="group.day" [cards]="group.data"></app-cards-button>
+    <app-cards-button [data]="group" (onViewClicked)="onViewClicked($event)"></app-cards-button>
   </ng-container>
 </div>
