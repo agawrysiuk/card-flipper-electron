@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {JapaneseData, japaneseData} from './data/japanese-data';
 
 @Component({
   selector: 'app-root',

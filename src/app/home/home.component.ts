@@ -47,4 +47,23 @@ export class HomeComponent {
   onLearnClicked($event: DayData) {
     this.router.navigate(['/learn'], {state: {data: $event}});
   }
+
+  onLearnWithPreviousClicked($event: DayData) {
+    const currentDayNumber = this.extractDay($event);
+    const previousCards = this.databaseCards
+      .filter(d => this.extractDay(d) < currentDayNumber)
+      .flatMap(d => d.cards);
+
+    const dataSum: DayData = {
+      day: $event.day + ' and previous',
+      frontTitle: $event.frontTitle,
+      backTitle: $event.backTitle,
+      cards: $event.cards.concat(previousCards)
+    }
+    this.router.navigate(['/learn'], {state: {data: dataSum}});
+  }
+
+  extractDay(data: DayData): number {
+    return parseInt(data.day.match(/\d+/)![0], 10);
+  }
 }

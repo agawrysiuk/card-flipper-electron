@@ -1,5 +1,7 @@
+<app-back-button></app-back-button>
 <div class="overlay pointer" *ngIf="state === 1" (click)="toggleState()"></div>
 <div class="container">
+  <p class="description">{{ data.day }}</p>
   <div class="text-section">
     <p>{{ currentCard.front }}</p>
     <hr />

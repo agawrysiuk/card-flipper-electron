@@ -12,13 +12,14 @@ export class CardsButtonComponent {
   @Input() data!: DayData;
   @Output() onViewClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
   @Output() onLearnClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
+  @Output() onLearnWithPreviousClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
 
   onLearnClick() {
     this.onLearnClicked.emit(this.data);
   }
 
   onLearnWithPreviousClick() {
-    console.log('Learn with previous button clicked');
+    this.onLearnWithPreviousClicked.emit(this.data);
   }
 
   onViewClick() {
