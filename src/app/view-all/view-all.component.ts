@@ -17,6 +17,8 @@ export class ViewAllComponent {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras?.state) {
       this.data = navigation.extras.state['data'];
+    } else {
+      this.router.navigate(["home"]);
     }
   }
 

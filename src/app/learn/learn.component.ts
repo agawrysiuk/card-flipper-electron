@@ -36,6 +36,8 @@ export class LearnComponent {
       this.allCards = this.weightedCards.length;
       this.setCardsLeft();
       this.pickCard();
+    } else {
+      this.router.navigate(["home"]);
     }
   }
 
