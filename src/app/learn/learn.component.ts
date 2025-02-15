@@ -18,6 +18,9 @@ export class LearnComponent {
   data!: DayData;
   weightedCards: WeightedFlipCard[] = [];
   currentCard!: FlipCard;
+  cardsLeft: number = 0;
+  allCards: number = 0;
+  words: number = 0;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
@@ -28,7 +31,10 @@ export class LearnComponent {
           card,
           { front: card.back, back: card.front }
         ])
-        .map(card => ({weight: 3, card}));
+        .map(card => ({weight: 2, card}));
+      this.words = this.data.cards.length;
+      this.allCards = this.weightedCards.length;
+      this.setCardsLeft();
       this.pickCard();
     }
   }
@@ -47,6 +53,7 @@ export class LearnComponent {
   adjustWeight(card: FlipCard, newWeight: number) {
     const item = this.weightedCards.find(wc => wc.card === card)!;
     item.weight = newWeight;
+    this.setCardsLeft();
   }
 
   pickCard() {
@@ -62,8 +69,11 @@ export class LearnComponent {
     this.currentCard = expandedList[randomIndex];
   }
 
-
   toggleState() {
     this.state = this.state === 'HIDE_BACK' ? 'SHOW_BACK' : 'HIDE_BACK';
+  }
+
+  setCardsLeft() {
+    this.cardsLeft = this.weightedCards.filter(wc => wc.weight > 0).length;
   }
 }
