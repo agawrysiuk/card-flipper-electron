@@ -1,0 +1,7 @@
+<app-sticky-button
+  [left]="0"
+  [right]="8"
+  [htmlSign]="fullFlag ? '&#9733;' : '&#9734;'"
+  [padding]="'8px 13px'"
+  (onButtonClicked)="onFavouriteClicked.emit(true)"
+></app-sticky-button>

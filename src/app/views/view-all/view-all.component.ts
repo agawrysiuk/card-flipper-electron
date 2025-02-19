@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {DayData} from '../data/dto';
+import {LearnData} from '../../data/dto';
 
 @Component({
   selector: 'app-view-all',
@@ -11,7 +11,7 @@ import {DayData} from '../data/dto';
 export class ViewAllComponent {
   showFront = true;
   showBack = true;
-  data!: DayData;
+  data!: LearnData;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();

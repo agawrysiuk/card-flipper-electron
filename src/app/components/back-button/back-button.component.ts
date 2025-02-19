@@ -9,9 +9,6 @@ import {Location} from '@angular/common';
 })
 export class BackButtonComponent {
 
-  @Input() left: number = 8;
-  @Input() top: number = 8;
-
   constructor(private location: Location) {
   }
 

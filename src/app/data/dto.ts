@@ -3,9 +3,10 @@ export interface FlipCard {
   back: string;
 }
 
-export interface DayData {
-  day: string,
+export interface LearnData {
+  label: string,
   frontTitle: string;
   backTitle: string;
   cards: FlipCard[]
+  isFlagged: boolean;
 }

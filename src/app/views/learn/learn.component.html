@@ -1,16 +1,19 @@
 <app-back-button></app-back-button>
+<app-favourite-button [fullFlag]="isInFlagged" (onFavouriteClicked)="flagCard()"></app-favourite-button>
 <div class="overlay pointer" *ngIf="state === 'HIDE_BACK'" (click)="toggleState()"></div>
 <div class="overlay" style="background-color: #fafafa" *ngIf="state === 'END'">
   <div class="container">
     <h2>Well done!</h2>
-    <p>You have finished all cards for {{ data.day }}.</p>
+    <p>You have finished all cards for {{ data.label }}.</p>
   </div>
 </div>
 <div class="container">
   <p class="description">
-    {{ data.day }}<br />
-    Words: {{ words }}<br />
-    Cards left: {{ cardsLeft }}/{{ allCards }}<br />
+    {{ data.label }}<br/>
+    Words: {{ words }}<br/>
+    Cards left: {{ cardsLeft }}/{{ allCards }}<br/>
+    Automatic flagging is: {{ autoFlag ? 'ON' : 'OFF' }}<br/>
+    {{ autoFlag ? '(three deep red faces to flag)' : ''}}
   </p>
   <div class="text-section">
     <p>{{ currentCard.front }}</p>

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {DayData} from '../data/dto';
+import {LearnData} from '../../data/dto';
 
 @Component({
   selector: 'app-cards-button',
@@ -9,10 +9,10 @@ import {DayData} from '../data/dto';
 })
 export class CardsButtonComponent {
 
-  @Input() data!: DayData;
-  @Output() onViewClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
-  @Output() onLearnClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
-  @Output() onLearnWithPreviousClicked: EventEmitter<DayData> = new EventEmitter<DayData>();
+  @Input() data!: LearnData;
+  @Output() onViewClicked: EventEmitter<LearnData> = new EventEmitter<LearnData>();
+  @Output() onLearnClicked: EventEmitter<LearnData> = new EventEmitter<LearnData>();
+  @Output() onLearnWithPreviousClicked: EventEmitter<LearnData> = new EventEmitter<LearnData>();
 
   onLearnClick() {
     this.onLearnClicked.emit(this.data);

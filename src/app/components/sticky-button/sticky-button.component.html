@@ -1,0 +1,6 @@
+<div [ngStyle]="{'left.px': left || null, 'right.px': right || null, 'top.px': top || null}" class="position-absolute">
+  <p [ngStyle]="{'backgroundColor': backgroundColor, 'padding': padding}"
+     class="pointer sticky-button"
+     (click)="onButtonClicked.emit(true)"
+     [innerHTML]="htmlSign"></p>
+</div>
